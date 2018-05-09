@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['']" >My DotNet App</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav" *ngIf="isLoggedIn()">
+        <li><a href="">Matches</a></li>
+        <li><a [routerLink]="['members']">Lists</a></li>
+        <li><a href="">Messages</a></li>
+      </ul>
+      <form *ngIf="!isLoggedIn()" #loginForm = "ngForm" class="navbar-form navbar-right" (ngSubmit)="login()">
+        <div class="form-group">
+          <input type="text" placeholder="Email" class="form-control" required name="username" [(ngModel)]="model.username">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control" required name="password" [(ngModel)]="model.password">
+        </div>
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+        <button type="button" class="btn btn-success" [routerLink]="['/auth']">Sign up</button>
+      </form>
+      <ul *ngIf="isLoggedIn()" class="nav navbar-nav navbar-right">
+        <li class="dropdown" dropdown>
+          <a href="#" class="dropdown-toggle" dropdownToggle>
+            Welcome {{authService.decodedToken.unique_name}}<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" *dropdownMenu>
+            <li><a><i class="fa fa-user menu-item__icon"></i><span class="menu-item__text">Edit Profile</span></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+   </div>
+  </div>
+</nav>

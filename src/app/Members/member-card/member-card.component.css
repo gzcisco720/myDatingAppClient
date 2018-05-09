@@ -1,0 +1,71 @@
+.panel-body {
+  padding: 5px;
+}
+
+.panel-body img {
+  width: 100%;
+}
+
+.panel__username{
+  padding: 5px;
+}
+
+.panel__username i{
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.panel__username span{
+  vertical-align: text-bottom;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: gray;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+h5 small {
+  font-weight: bold;
+  font-size: 12px;
+  font-style: italic;
+}
+
+img {
+  transform: scale(1,1);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+
+.panel:hover img {
+  transform: scale(1.2,1.2);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  opacity: 0.7;
+}
+
+.panel-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.member-icons {
+  position: absolute;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  opacity: 0;
+}
+
+.panel:hover .member-icons {
+  bottom: 0;
+  opacity: 1;
+}
+
+.animate {
+  transition: all 0.3s ease-in-out;
+}

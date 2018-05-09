@@ -1,0 +1,10 @@
+.menu-item__icon {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.menu-item__text {
+  vertical-align: middle;
+}
+nav {
+  border-radius: 0;
+}

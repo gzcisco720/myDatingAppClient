@@ -1,0 +1,45 @@
+<div class="col-md-6 col-md-offset-3">
+  <form class="thumbnail registerform" [formGroup]="registerFormGroup" (ngSubmit)="register()">
+    <h2 class="text-center text-primary">Sign Up</h2>
+    <hr>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+        <p *ngFor="let item of error">
+            {{item}}
+        </p>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': registerFormGroup.get('username').errors && registerFormGroup.get('username').touched}">
+      <label class="control-label" for="register-username">Username</label>
+      <input type="text" class="form-control input-lg" id="register-username" placeholder="username"
+      formControlName="username">
+      <span class="help-block" *ngIf="registerFormGroup.get('username').hasError('required') && registerFormGroup.get('username').touched">
+        Username is required
+      </span>
+    </div>
+    <div class="form-group"  [ngClass]="{'has-error': registerFormGroup.get('password').errors && registerFormGroup.get('password').touched}">
+      <label class="control-label" for="register-password">Password</label>
+      <input type="password" class="form-control input-lg" id="register-password" placeholder="Password"
+      formControlName="password">
+      <span class="help-block" *ngIf="registerFormGroup.get('password').hasError('required') && registerFormGroup.get('password').touched">
+        Password is required
+      </span>
+    </div>
+    <div class="form-group"  [ngClass]="{'has-error': registerFormGroup.get('confirm').errors && registerFormGroup.get('confirm').touched}">
+      <label class="control-label" for="confirm-password">Confirm Password</label>
+      <input type="password" class="form-control input-lg" id="confirm-password" placeholder="Confirm password"
+      formControlName="confirm">
+      <span class="help-block" *ngIf="registerFormGroup.get('confirm').hasError('required') && registerFormGroup.get('confirm').touched">
+        Re-enter Password Please
+      </span>
+      <span class="help-block" *ngIf="registerFormGroup.get('confirm').hasError('miamatched') && registerFormGroup.get('confirm').touched">
+        Password mismatched
+      </span>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+
+
