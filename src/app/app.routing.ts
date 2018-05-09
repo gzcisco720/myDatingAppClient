@@ -1,7 +1,7 @@
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { MembersListComponent } from './Members/members-list/members-list.component';
 import { MemberDetailComponent } from './Members/member-detail/member-detail.component';
-import { ValueComponent } from './value/value.component';
+import { ValueComponent } from './AppComponents/value/value.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [

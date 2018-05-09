@@ -22,8 +22,7 @@
         "styles.css",
         "../node_modules/bootswatch/flatly/bootstrap.min.css"
       ],
-      "scripts": [
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
