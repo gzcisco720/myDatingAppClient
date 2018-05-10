@@ -27,7 +27,7 @@
       </form>
       <ul *ngIf="isLoggedIn()" class="nav navbar-nav navbar-right">
         <li class="dropdown" dropdown>
-          <a href="#" class="dropdown-toggle" dropdownToggle>
+          <a class="dropdown-toggle" dropdownToggle>
             Welcome {{authService.decodedToken.unique_name}}<span class="caret"></span>
           </a>
           <ul class="dropdown-menu" *dropdownMenu>
