@@ -5,6 +5,7 @@ import { RegisterGuard } from '../_guards/register.guard';
 import { UserService } from './user.service';
 import { MemberDetailResolver } from '../_resolvers/member-detail.resolver';
 import { AuthGuard } from '../_guards/auth.guard';
+import { UserEditResolver } from '../_resolvers/user-edit.resolver';
 
 @NgModule()
 
@@ -21,7 +22,8 @@ export class ServiceModule {
           {provide: RegisterGuard, useClass: RegisterGuard},
           {provide: AuthGuard, useClass: AuthGuard},
           // Router Resolver
-          {provide: MemberDetailResolver, useClass: MemberDetailResolver}
+          {provide: MemberDetailResolver, useClass: MemberDetailResolver},
+          {provide: UserEditResolver, useClass: UserEditResolver}
         ]
       };
   }

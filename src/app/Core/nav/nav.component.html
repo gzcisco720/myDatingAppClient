@@ -31,7 +31,7 @@
             Welcome {{authService.decodedToken.unique_name}}<span class="caret"></span>
           </a>
           <ul class="dropdown-menu" *dropdownMenu>
-            <li><a><i class="fa fa-user menu-item__icon"></i><span class="menu-item__text">Edit Profile</span></a></li>
+            <li><a [routerLink]="['/auth/edit']"><i class="fa fa-user menu-item__icon"></i><span class="menu-item__text">Edit Profile</span></a></li>
             <li role="separator" class="divider"></li>
             <li><a (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a></li>
           </ul>
