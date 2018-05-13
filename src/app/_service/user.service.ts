@@ -17,4 +17,8 @@ export class UserService {
   getUser(id): Observable<User> {
     return this.http.get(this.baseUrl + `/${id}`).catch(getErrorMessage);
   }
+
+  userUpdate(id: number, user: User) {
+    return this.http.put(this.baseUrl + `/${id}`, user).catch(getErrorMessage);
+  }
 }
