@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-default">
-          <img class="profile-image thumbnail" src="{{user?.photoUrl}}" alt="">
+          <img class="profile-image thumbnail" src="{{user.photoUrl ? user.photoUrl: '../../../assets/user.png'}}" alt="">
           <div class="panel-body">
             <div>
               <strong>Loaction: </strong>
@@ -43,7 +43,7 @@
             </tab>
             <tab heading="Interests">
                 <h4>Description</h4>
-                <p>{{user.interest}}</p>
+                <!-- <p>{{user.interest}}</p> -->
             </tab>
             <tab heading="Photo">
               <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>

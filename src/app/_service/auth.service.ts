@@ -27,7 +27,11 @@ export class AuthService {
     const userInLocalStorage = JSON.parse(localStorage.getItem('user'));
     if (userInLocalStorage) {
       this.currentUser = userInLocalStorage;
-      this.changeMemberPhoto(userInLocalStorage.photoUrl);
+      if (this.currentUser.photoUrl) {
+        this.changeMemberPhoto(this.currentUser.photoUrl);
+      } else {
+        this.changeMemberPhoto('../../assets/user.png');
+      }
     }
   }
 
@@ -44,15 +48,19 @@ export class AuthService {
         this.userToken = user.tokenString;
         this.currentUser = user.user;
         this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
-        this.changeMemberPhoto(this.currentUser.photoUrl);
+        if (this.currentUser.photoUrl) {
+          this.changeMemberPhoto(this.currentUser.photoUrl);
+        } else {
+          this.changeMemberPhoto('../../assets/user.png');
+        }
       }
     }).catch(getErrorMessage);
   }
   loggedIn() {
     return !this.jwtHelper.isTokenExpired();
   }
-  register(model: any) {
-    return this.http.post(`${this.baseUrl}/register`, model, headerConfig())
+  register(user: User) {
+    return this.http.post(`${this.baseUrl}/register`, user, headerConfig())
           .catch(getErrorMessage);
   }
 }

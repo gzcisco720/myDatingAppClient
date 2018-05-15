@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, Form, FormControl } from '@angular/
 import { validateAllFields } from '../../_tools/form.utils';
 import { AlertifyService } from './../../_service/alertify.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { User } from '../../Models/User';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 export class RegisterComponent implements OnInit {
 
-  model: any = {};
+  user: User;
   registerFormGroup: FormGroup;
   error: any = null;
   bsConfig: Partial<BsDatepickerConfig>;
@@ -45,9 +46,8 @@ export class RegisterComponent implements OnInit {
     if (!validateAllFields(this.registerFormGroup)) {
       return;
     }
-    this.model.username = this.registerFormGroup.get('username').value;
-    this.model.password = this.registerFormGroup.get('password').value;
-    this.authService.register(this.model).subscribe((res) => {
+    this.user = Object.assign({}, this.registerFormGroup.value);
+    this.authService.register(this.user).subscribe((res) => {
       this.error = null;
       this.alertify.success('Register User Successfully');
       this.router.navigate(['']);
