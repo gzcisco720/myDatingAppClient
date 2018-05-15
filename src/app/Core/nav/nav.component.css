@@ -8,3 +8,11 @@
 nav {
   border-radius: 0;
 }
+img {
+  max-height: 40px;
+  border: 2px solid white;
+  display: inline;
+  position: relative;
+  top: 10px;
+  border-radius: 50%;
+}

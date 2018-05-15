@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-default">
-          <img class="profile-image thumbnail" src="{{user?.photoUrl}}" alt="">
+          <img class="profile-image thumbnail" src="{{photoUrl}}" alt="">
           <div class="panel-body">
             <div>
               <strong>Loaction: </strong>
@@ -58,7 +58,7 @@
               </form>
             </tab>
             <tab heading="Eidt Photo">
-                <app-photo-editor [photos]="user.photos" (mainPhotoChanged)="updateMainPhoto($event);"></app-photo-editor>
+                <app-photo-editor [photos]="user.photos"></app-photo-editor>
             </tab>
           </tabset>
       </div>
