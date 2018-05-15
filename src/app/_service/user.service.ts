@@ -25,4 +25,8 @@ export class UserService {
   setMainPhoto(userId: number, id: number) {
     return this.http.post(`${this.baseUrl}/${userId}/photos/${id}/setMain`, {}).catch(getErrorMessage);
   }
+
+  deletePhoto(userId: number, id: number) {
+    return this.http.delete(`${this.baseUrl}/${userId}/photos/${id}`, {}).catch(getErrorMessage);
+  }
 }
