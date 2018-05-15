@@ -58,7 +58,7 @@
               </form>
             </tab>
             <tab heading="Eidt Photo">
-                <app-photo-editor [photos]="user.photos"></app-photo-editor>
+                <app-photo-editor [photos]="user.photos" (mainPhotoChanged)="updateMainPhoto($event);"></app-photo-editor>
             </tab>
           </tabset>
       </div>

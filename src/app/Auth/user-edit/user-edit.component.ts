@@ -29,11 +29,15 @@ export class UserEditComponent implements OnInit {
   }
 
   updateUser() {
-    this.userService.userUpdate(+this.authService.decodedToken.nameid, this.user).subscribe(_ => {
+    this.userService.userUpdate(+this.authService.decodedToken.nameid, this.user).subscribe(res => {
       this.alertify.success('User is updated successfully');
       this.editForm.reset(this.user);
     }, error => {
       this.alertify.error(error);
     });
+  }
+
+  updateMainPhoto(photoUrl) {
+    this.user.photoUrl = photoUrl;
   }
 }
