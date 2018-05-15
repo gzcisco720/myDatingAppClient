@@ -4,6 +4,7 @@ import { AuthService } from '../../_service/auth.service';
 import { FormBuilder, FormGroup, Validators, Form, FormControl } from '@angular/forms';
 import { validateAllFields } from '../../_tools/form.utils';
 import { AlertifyService } from './../../_service/alertify.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   registerFormGroup: FormGroup;
   error: any = null;
+  bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
@@ -24,8 +26,16 @@ export class RegisterComponent implements OnInit {
             ) { }
 
   ngOnInit() {
+    this.bsConfig = {
+      containerClass: 'theme-dark-blue'
+    };
     this.registerFormGroup = this.fb.group({
+      gender: ['female'],
       username: ['', Validators.required],
+      knownAs: ['', Validators.required],
+      dateOfBirth: [null, Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
       password: ['', Validators.required],
       confirm: ['', Validators.compose([Validators.required, this.passwordConfirm()])]
     });

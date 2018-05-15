@@ -7,12 +7,53 @@
             {{item}}
         </p>
     </div>
+    <div class="form-group">
+      <label class="control-label" style="margin-right: 10px">Gender</label>
+      <label class="radio-inline">
+        <input type="radio" value="male" formControlName="gender">Male
+      </label>
+      <label class="radio-inline">
+        <input type="radio" value="female" formControlName="gender">Female
+      </label>
+    </div>
     <div class="form-group" [ngClass]="{'has-error': registerFormGroup.get('username').errors && registerFormGroup.get('username').touched}">
       <label class="control-label" for="register-username">Username</label>
       <input type="text" class="form-control input-lg" id="register-username" placeholder="username"
       formControlName="username">
       <span class="help-block" *ngIf="registerFormGroup.get('username').hasError('required') && registerFormGroup.get('username').touched">
         Username is required
+      </span>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': registerFormGroup.get('knownAs').errors && registerFormGroup.get('knownAs').touched}">
+      <label class="control-label" for="register-knownAs">Nickname</label>
+      <input type="text" class="form-control input-lg" id="register-knownAs" placeholder="knownAs"
+      formControlName="knownAs">
+      <span class="help-block" *ngIf="registerFormGroup.get('knownAs').hasError('required') && registerFormGroup.get('knownAs').touched">
+        Nickname is required
+      </span>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': registerFormGroup.get('dateOfBirth').errors && registerFormGroup.get('dateOfBirth').touched}">
+      <label class="control-label" for="register-dateOfBirth">Date Of Birth</label>
+      <input type="text" bsDatepicker [bsConfig]="bsConfig" readonly style="background-color: white;" class="form-control input-lg" id="register-dateOfBirth" placeholder="Date Of Birth"
+      formControlName="dateOfBirth">
+      <span class="help-block" *ngIf="registerFormGroup.get('dateOfBirth').hasError('required') && registerFormGroup.get('dateOfBirth').touched">
+        Date of birth is required
+      </span>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': registerFormGroup.get('city').errors && registerFormGroup.get('city').touched}">
+      <label class="control-label" for="register-city">City</label>
+      <input type="text" class="form-control input-lg" id="register-city" placeholder="City"
+      formControlName="city">
+      <span class="help-block" *ngIf="registerFormGroup.get('city').hasError('required') && registerFormGroup.get('city').touched">
+        City is required
+      </span>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': registerFormGroup.get('country').errors && registerFormGroup.get('country').touched}">
+      <label class="control-label" for="register-country">Country</label>
+      <input type="text" class="form-control input-lg" id="register-country" placeholder="Country"
+      formControlName="country">
+      <span class="help-block" *ngIf="registerFormGroup.get('country').hasError('required') && registerFormGroup.get('country').touched">
+        Country is required
       </span>
     </div>
     <div class="form-group"  [ngClass]="{'has-error': registerFormGroup.get('password').errors && registerFormGroup.get('password').touched}">
@@ -35,7 +76,7 @@
       </span>
     </div>
     <div class="text-center">
-      <button type="submit" class="btn btn-lg btn-success">Submit</button>
+      <button type="submit" class="btn btn-lg btn-success" [disabled]="!registerFormGroup.valid">Submit</button>
     </div>
   </form>
 </div>

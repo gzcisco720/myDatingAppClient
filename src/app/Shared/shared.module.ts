@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
     BsDropdownModule,
     TabsModule,
     NgxGalleryModule,
+    BsDatepickerModule,
   ],
   exports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
     BsDropdownModule,
     TabsModule,
     NgxGalleryModule,
+    BsDatepickerModule,
   ]
 })
 export class SharedModule { }
