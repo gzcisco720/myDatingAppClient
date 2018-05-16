@@ -25,11 +25,11 @@
             </div>
             <div>
               <strong>LastActive: </strong>
-              <p>{{user.lastActive | date:'yyyy-MM-dd'}}</p>
+              <p>{{user.lastActive | timeAgo }}</p>
             </div>
             <div>
               <strong>Member Since: </strong>
-              <p>{{user.created | date:'yyyy-MM-dd'}}</p>
+              <p>{{user.created | date:'mediumDate'}}</p>
             </div>
           </div>
           <div class="panel-footer">

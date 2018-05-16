@@ -6,6 +6,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +18,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
     NgxGalleryModule,
     BsDatepickerModule,
   ],
+  declarations: [
+    TimeAgoPipe
+  ],
   exports: [
     CommonModule,
     FormsModule,
@@ -25,6 +29,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
     TabsModule,
     NgxGalleryModule,
     BsDatepickerModule,
+    TimeAgoPipe,
   ]
 })
 export class SharedModule { }
