@@ -4,7 +4,7 @@ import { headerConfig } from './../_tools/service.utils';
 import { Injectable, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { DecodedToken } from '../Models/decodedToken';
+import { DecodedToken } from '../Models/DecodedToken';
 import { getErrorMessage } from '../_tools/service.utils';
 import { User } from '../Models/User';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';

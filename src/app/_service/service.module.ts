@@ -7,6 +7,7 @@ import { MemberDetailResolver } from '../_resolvers/member-detail.resolver';
 import { AuthGuard } from '../_guards/auth.guard';
 import { UserEditResolver } from '../_resolvers/user-edit.resolver';
 import { PreventUnsavedChangesGuard } from '../_guards/prevent-unsaved-changes.guard';
+import { MemberListResolver } from '../_resolvers/member-list.resolver';
 
 @NgModule()
 
@@ -25,7 +26,8 @@ export class ServiceModule {
           {provide: PreventUnsavedChangesGuard, useClass: PreventUnsavedChangesGuard},
           // Router Resolver
           {provide: MemberDetailResolver, useClass: MemberDetailResolver},
-          {provide: UserEditResolver, useClass: UserEditResolver}
+          {provide: UserEditResolver, useClass: UserEditResolver},
+          {provide: MemberListResolver, useClass: MemberListResolver}
         ]
       };
   }

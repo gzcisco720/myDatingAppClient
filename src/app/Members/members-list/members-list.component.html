@@ -4,4 +4,15 @@
       <app-member-card [user]="user"></app-member-card>
     </div>
   </div>
+  <div class="text-center">
+    <pagination [boundaryLinks]="true"
+                [totalItems]="pagination.totalItems"
+                [itemsPerPage]="12"
+                [(ngModel)]="pagination.currentPage"
+                (pageChanged) = pageChanged($event)
+                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    </pagination>
+  </div>
 </div>
+
+

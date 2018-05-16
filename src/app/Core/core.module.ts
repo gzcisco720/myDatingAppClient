@@ -16,6 +16,7 @@ import 'rxjs/add/operator/catch';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { PaginationModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   declarations: [
     NavComponent
