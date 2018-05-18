@@ -17,6 +17,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { PaginationModule } from 'ngx-bootstrap';
+import { ButtonsModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { PaginationModule } from 'ngx-bootstrap';
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
   ],
   declarations: [
     NavComponent

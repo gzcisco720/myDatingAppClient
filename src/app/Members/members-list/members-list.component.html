@@ -1,5 +1,43 @@
 <div class="container">
   <div class="row">
+    <div class="text-center">
+      <h2 style="margin-bottom: 50px">
+        <span *ngIf="pagination.totalItems!==0">{{pagination.totalItems}} Match<span *ngIf="pagination.totalItems > 1">es have</span><span *ngIf="pagination.totalItems==1">has</span> been found</span>
+        <span *ngIf="pagination.totalItems===0">Can not find any Match</span>
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <form class="form-inline" #filterForm="ngForm" style="margin-bottom: 50px" (submit)="loadUsers()">
+      <div class="form-group">
+        <label class="sr-only" for="MinAgeInput">MinAge</label>
+        <input type="number" class="form-control" id="MinAgeInput" name="MinAgeInput" placeholder="Mini Age" [(ngModel)]="userParams.minAge">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="MaxAgeInput">MaxAge</label>
+        <input type="number" class="form-control" id="MaxAgeInput" name="MaxAgeInput" placeholder="Max Age" [(ngModel)]="userParams.maxAge">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="GenderSelect">Gender</label>
+        <select class="form-control" name="GenderSelect" id="GenderSelect" style="min-width: 200px;" [(ngModel)]="userParams.gender">
+          <option value="">Gender</option>
+          <option *ngFor="let gender of genderList" [value]="gender.value">
+            {{gender.displayValue}}
+          </option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!filterForm.valid">Filter</button>
+      <button type="submit" class="btn btn-default" (click)="resetFilters()">Reset</button>
+      <div class="pull-right">
+        <label style="margin-right: 20px">Order By: </label>
+        <div class="btn-group">
+          <button type="button" name="orderBy" class="btn btn-success" [(ngModel)]="userParams.orderBy" btnRadio="lastActive" (click)="loadUsers()">Last Active</button>
+          <button type="button" name="orderBy" class="btn btn-success" [(ngModel)]="userParams.orderBy" btnRadio="created" (click)="loadUsers()">Newest User</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
     <div *ngFor="let user of users" class="col-lg-2 col-md-3 col-sm-6">
       <app-member-card [user]="user"></app-member-card>
     </div>

@@ -8,6 +8,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap';
+import { ButtonsModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { PaginationModule } from 'ngx-bootstrap';
     NgxGalleryModule,
     BsDatepickerModule,
     PaginationModule,
+    ButtonsModule,
   ],
   declarations: [
     TimeAgoPipe
@@ -33,6 +35,7 @@ import { PaginationModule } from 'ngx-bootstrap';
     BsDatepickerModule,
     TimeAgoPipe,
     PaginationModule,
+    ButtonsModule,
   ]
 })
 export class SharedModule { }
