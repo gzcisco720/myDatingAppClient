@@ -11,9 +11,15 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(page?: number, itemsPerPage?: number, userParams?: any): Observable<PaginatedResult<User[]>> {
+  getUsers(page?: number, itemsPerPage?: number, userParams?: any, likesParams?: string): Observable<PaginatedResult<User[]>> {
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
     let queryString = '?';
+    if (likesParams === 'Likers') {
+      queryString += 'Likers=true&';
+    }
+    if (likesParams === 'Likees') {
+      queryString += 'Likees=true&';
+    }
     if (page !== null && itemsPerPage !== null) {
       queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage + '&';
     }
@@ -41,6 +47,10 @@ export class UserService {
 
   setMainPhoto(userId: number, id: number) {
     return this.http.post(`${this.baseUrl}/${userId}/photos/${id}/setMain`, {}).catch(getErrorMessage);
+  }
+
+  sendLike(id: number, recipientId: number) {
+    return this.http.post(`${this.baseUrl}/${id}/like/${recipientId}`, {}).catch(getErrorMessage);
   }
 
   deletePhoto(userId: number, id: number) {

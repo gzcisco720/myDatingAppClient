@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { RequestOptions, Headers } from '@angular/http';
+import { RequestOptions, Headers, Response } from '@angular/http';
 
 export const headerConfig = () => {
   const headers = new Headers({'Content-Type': 'application/json'});
@@ -14,17 +14,20 @@ export const getErrorMessage = (error) => {
   if (error.status === 401) {
     return Observable.throw('Authentication Failed');
   }
-  const errorJson = error.json();
-  const errorArray = Object.keys(errorJson).map(key => {
-    let returnString = `${key}: `;
-    if (Array.isArray(errorJson[key])) {
-      for (let i = 0; i < errorJson[key].length; i++) {
-        returnString += `${errorJson[key][i]}`;
+  if (error instanceof Response) {
+    const errorJson = error.json();
+    const errorArray = Object.keys(errorJson).map(key => {
+      let returnString = `${key}: `;
+      if (Array.isArray(errorJson[key])) {
+        for (let i = 0; i < errorJson[key].length; i++) {
+          returnString += `${errorJson[key][i]}`;
+        }
       }
-    }
-    return returnString;
-  }).reverse();
-  return Observable.throw(errorArray);
+      return returnString;
+    }).reverse();
+    return Observable.throw(errorArray);
+  }
+  return Observable.throw(error.error);
 };
 
 export const jwt = () => {

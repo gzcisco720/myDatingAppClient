@@ -6,6 +6,7 @@ import { MemberCardComponent } from './member-card/member-card.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { RouterModule } from '@angular/router';
 import { MembersRoutes } from './members.routing';
+import { MemberLikesComponent } from './member-likes/member-likes.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { MembersRoutes } from './members.routing';
   declarations: [
     MembersListComponent,
     MemberCardComponent,
-    MemberDetailComponent
-  ]
+    MemberDetailComponent,
+    MemberLikesComponent
+]
 })
 export class MembersModule { }

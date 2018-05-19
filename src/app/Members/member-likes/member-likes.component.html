@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="btn-group">
+      <button class="btn btn-primary" [(ngModel)]="likesParams" btnRadio="Likers" (click)="loadUsers()">Person Like me</button>
+      <button class="btn btn-primary" [(ngModel)]="likesParams" btnRadio="Likees" (click)="loadUsers()">Person I Like</button>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let user of users" class="col-lg-2 col-md-3 col-sm-6">
+      <app-member-card [user]="user"></app-member-card>
+    </div>
+  </div>
+  <div class="text-center">
+    <pagination [boundaryLinks]="true"
+                [totalItems]="pagination.totalItems"
+                [itemsPerPage]="12"
+                [(ngModel)]="pagination.currentPage"
+                (pageChanged) = pageChanged($event)
+                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    </pagination>
+  </div>
+</div>

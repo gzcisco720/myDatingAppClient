@@ -8,6 +8,7 @@ import { AuthGuard } from '../_guards/auth.guard';
 import { UserEditResolver } from '../_resolvers/user-edit.resolver';
 import { PreventUnsavedChangesGuard } from '../_guards/prevent-unsaved-changes.guard';
 import { MemberListResolver } from '../_resolvers/member-list.resolver';
+import { LikesListResolver } from '../_resolvers/likes-list.resolver';
 
 @NgModule()
 
@@ -27,7 +28,8 @@ export class ServiceModule {
           // Router Resolver
           {provide: MemberDetailResolver, useClass: MemberDetailResolver},
           {provide: UserEditResolver, useClass: UserEditResolver},
-          {provide: MemberListResolver, useClass: MemberListResolver}
+          {provide: MemberListResolver, useClass: MemberListResolver},
+          {provide: LikesListResolver, useClass: LikesListResolver}
         ]
       };
   }
