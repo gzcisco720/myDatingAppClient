@@ -1,6 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="btn-group">
+    <div class="text-center">
+      <h2 style="margin-bottom: 50px">
+        <span *ngIf="pagination.totalItems!==0">{{pagination.totalItems}} Match<span *ngIf="pagination.totalItems > 1">es have</span><span *ngIf="pagination.totalItems==1">has</span> been found</span>
+        <span *ngIf="pagination.totalItems===0">Can not find any Match</span>
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="btn-group" style="margin-bottom: 50px">
       <button class="btn btn-primary" [(ngModel)]="likesParams" btnRadio="Likers" (click)="loadUsers()">Person Like me</button>
       <button class="btn btn-primary" [(ngModel)]="likesParams" btnRadio="Likees" (click)="loadUsers()">Person I Like</button>
     </div>
