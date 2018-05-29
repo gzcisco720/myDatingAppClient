@@ -1,10 +1,11 @@
+import { Message } from './../Models/Message';
+import { PaginatedResult } from './../Models/Pagination';
 import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../Models/User';
 import { environment } from './../../environments/environment';
 import { getErrorMessage } from '../_tools/service.utils';
-import { PaginatedResult } from '../Models/Pagination';
 @Injectable()
 export class UserService {
   private baseUrl = environment.apiUrl + '/users';
@@ -55,5 +56,20 @@ export class UserService {
 
   deletePhoto(userId: number, id: number) {
     return this.http.delete(`${this.baseUrl}/${userId}/photos/${id}`, {}).catch(getErrorMessage);
+  }
+
+  getMessages(id: number, page?: number, itemsPerpage?: number, messageContainer?: string) {
+    const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
+    let queryString = '?MessageContainer=' + messageContainer;
+    if (page !== null && itemsPerpage !== null) {
+      queryString += '&pageNumber=' + page + '&pageSize=' + itemsPerpage;
+    }
+    return this.http.get<Message[]>(`${this.baseUrl}/${id}/messages/${queryString}`, {observe: 'response'}).map((res) => {
+      paginatedResult.result = res.body;
+      if (res.headers.get('Pagination') !== null) {
+        paginatedResult.pagination = JSON.parse(res.headers.get('Pagination'));
+      }
+      return paginatedResult;
+    }).catch(getErrorMessage);
   }
 }

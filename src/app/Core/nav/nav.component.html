@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav" *ngIf="isLoggedIn()">
         <li><a [routerLink]="['members']">Matches</a></li>
         <li><a [routerLink]="['members/list/likes']">Lists</a></li>
-        <li><a href="">Messages</a></li>
+        <li><a [routerLink]="['members/list/messages']">Messages</a></li>
       </ul>
       <form *ngIf="!isLoggedIn()" #loginForm = "ngForm" class="navbar-form navbar-right" (ngSubmit)="login()">
         <div class="form-group">
