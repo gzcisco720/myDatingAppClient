@@ -72,4 +72,20 @@ export class UserService {
       return paginatedResult;
     }).catch(getErrorMessage);
   }
+
+  getMessageThread(id: number, recipientId: number) {
+    return this.http.get(`${this.baseUrl}/${id}/messages/thread/${recipientId}`, {}).catch(getErrorMessage);
+  }
+
+  sendMessage(id: number, message: Message) {
+    return this.http.post(`${this.baseUrl}/${id}/messages`, message).catch(getErrorMessage);
+  }
+
+  deleteMessage(id: number, userId: number) {
+    return this.http.post(`${this.baseUrl}/${userId}/messages/${id}`, {}).catch(getErrorMessage);
+  }
+
+  markAsRead(userId: number, messageId: number) {
+    return this.http.post(`${this.baseUrl}/${userId}/messages/${messageId}/read`, {}).subscribe();
+  }
 }

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_service/user.service';
 import { AlertifyService } from '../../_service/alertify.service';
 import { ActivatedRoute } from '@angular/router';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-messages',
@@ -37,6 +38,18 @@ export class MessagesComponent implements OnInit {
       this.pagination = res.pagination;
     }, error => {
       this.alertify.error(error);
+    });
+  }
+
+  deleteMessage(id: number, event: Event) {
+    event.stopPropagation();
+    this.alertify.confirm('Are you sure?', () => {
+      this.userService.deleteMessage(id, +this.authService.decodedToken.nameid).subscribe(() => {
+        this.messages.splice(_.findIndex(this.messages, {id: id}), 1);
+        this.alertify.success('Message has been deleted');
+      }, error => {
+        this.alertify.error(error);
+      });
     });
   }
 

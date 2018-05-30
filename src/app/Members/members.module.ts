@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MembersRoutes } from './members.routing';
 import { MemberLikesComponent } from './member-likes/member-likes.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MemberMessagesComponent } from './member-messages/member-messages.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MessagesComponent } from './messages/messages.component';
     MemberCardComponent,
     MemberDetailComponent,
     MemberLikesComponent,
-    MessagesComponent
-  ]
+    MessagesComponent,
+    MemberMessagesComponent
+]
 })
 export class MembersModule { }
