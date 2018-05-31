@@ -44,9 +44,20 @@
   outline: none;
   transition: background-color 0.3s ease-in-out;
 }
-/* .banner .banner__button button:first-child {
-  margin-right: 20px
-} */
+section h2.section-heading {
+  font-size: 40px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+section h3.section-subheading {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 75px;
+  text-transform: none;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 #team {
   background-color: #DEE0E2;
 }
@@ -88,7 +99,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-color: #fed136;
 }
 #services {
-  padding: 50px 0 50px 0;
+  padding: 0 0 50px 0;
   margin-top:-25px;
 }
 .service-heading {
