@@ -1,14 +1,13 @@
 .banner {
   width: 100%;
-  overflow: hidden;
-  position: relative;
-  bottom: 21px;
-}
-.banner img {
-  width: 100%;
+  height: 600px;
+  margin-top: -25px;
+  background-image: url('http://res.cloudinary.com/deey9oou3/image/upload/v1526357100/banner-image.jpg');
   background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
   background-size: cover;
-  background-position: center;
+  position: relative;
 }
 .banner .banner__title {
   width: 100%;
@@ -18,7 +17,7 @@
 }
 .banner .banner__title h1{
   font-family: cursive;
-  font-size:5vw;
+  font-size: 60px;
 }
 .banner .banner__shadow {
   width: 100%;
